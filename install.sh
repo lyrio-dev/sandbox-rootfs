@@ -51,6 +51,11 @@ su sandbox -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s
 su sandbox -c "curl -s https://get.sdkman.io | bash"
 su sandbox -s /bin/bash -c "source ~/.sdkman/bin/sdkman-init.sh && sdk install kotlin"
 
+# Install Swift
+SWIFT_URL="https://swift.org/builds/swift-5.3.2-release/ubuntu2004/swift-5.3.2-RELEASE/swift-5.3.2-RELEASE-ubuntu20.04.tar.gz"
+wget -O - "$SWIFT_URL" | tar -xzf - -C /opt
+mv /opt/swift* /opt/swift
+
 # Create symlinks for compilers and interpreters with non-common names and locations
 ln -s /usr/bin/g++-10 /usr/local/bin/g++
 ln -s /usr/bin/gcc-10 /usr/local/bin/gcc
@@ -59,6 +64,7 @@ ln -s /usr/bin/clang++-11 /usr/local/bin/clang++
 ln -s /sandbox/.sdkman/candidates/kotlin/current/bin/kotlin /usr/local/bin/kotlin
 ln -s /sandbox/.sdkman/candidates/kotlin/current/bin/kotlinc /usr/local/bin/kotlinc
 ln -s /sandbox/.cargo/bin/rustc /usr/local/bin/rustc
+ln -s /opt/swift/usr/bin/swiftc /usr/local/bin/swiftc
 
 # Clean the APT cache
 apt-get clean

@@ -9,6 +9,7 @@ This is the sandbox's rootfs used by [syzoj-ng-judge](https://github.com/syzoj/s
 * Python 2.7 (from [PPA](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa))
 * Python 3.6
 * Python 3.9 (from [PPA](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa))
+* Swift (from [Swift.org](https://swift.org/))
 * Rust (from [Rustup](https://rustup.rs/))
 * Go (from [PPA](https://launchpad.net/~longsleep/+archive/ubuntu/golang-backports))
 * GHC (from [PPA](https://launchpad.net/~hvr/+archive/ubuntu/ghc))
