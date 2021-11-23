@@ -52,7 +52,8 @@ su sandbox -c "curl -s https://get.sdkman.io | bash"
 su sandbox -s /bin/bash -c "source ~/.sdkman/bin/sdkman-init.sh && sdk install kotlin"
 
 # Install Swift
-SWIFT_URL="https://swift.org/builds/swift-5.3.2-release/ubuntu2004/swift-5.3.2-RELEASE/swift-5.3.2-RELEASE-ubuntu20.04.tar.gz"
+SWIFT_URL_QUOTED="$(curl https://www.swift.org/download/ --compressed | grep -P '"([^"]+ubuntu20.04.tar.gz)"' -o | head -n 1)"
+SWIFT_URL="$(eval "echo $SWIFT_URL_QUOTED")"
 wget -O - "$SWIFT_URL" | tar -xzf - -C /opt
 mv /opt/swift* /opt/swift
 
