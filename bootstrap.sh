@@ -28,7 +28,7 @@ if [[ "$ROOTFS_PATH" == "" ]]; then
 fi
 
 if [[ "$MIRROR" == "" ]]; then
-    MIRROR="https://mirrors.tuna.tsinghua.edu.cn/ubuntu"
+    MIRROR="http://mirrors.tuna.tsinghua.edu.cn/ubuntu"
 fi
 
 rm -rf "$ROOTFS_PATH"
