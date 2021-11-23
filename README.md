@@ -1,5 +1,5 @@
-# Sandbox RootFS NG
-This is the sandbox's rootfs used by [syzoj-ng-judge](https://github.com/syzoj/syzoj-ng-judge). It's based on Ubuntu 20.04 and contains compilers (and interpreters) below:
+# Sandbox RootFS
+This is the sandbox's rootfs used by [lyrio-judge](https://github.com/lyrio-dev/judge). It's based on Ubuntu 20.04 and contains compilers (and interpreters) below:
 
 * GCC 10
 * Clang 11 (from [LLVM](https://apt.llvm.org/))
@@ -18,7 +18,7 @@ This is the sandbox's rootfs used by [syzoj-ng-judge](https://github.com/syzoj/s
 
 Each compiler (or interpreter) is available in `$PATH`. It also contains [`testlib.h`](https://github.com/MikeMirzayanov/testlib) in `/usr/include`.
 
-You can download it from [release](https://github.com/syzoj/sandbox-rootfs-ng/releases) or bootstrap by yourself.
+You can download it from [release](https://github.com/lyrio-dev/sandbox-rootfs/releases) or bootstrap by yourself.
 
 # Bootstrapping
 You'll need:
@@ -30,14 +30,14 @@ You'll need:
 First, clone this repo:
 
 ```bash
-git clone git@github.com:syzoj/sandbox-rootfs-ng.git
-cd sandbox-rootfs-ng
+git clone git@github.com:lyrio-dev/sandbox-rootfs.git
+cd sandbox-rootfs
 ```
 
 Set the path to bootstrap rootfs. If there're anything inside it, it'll be `rm -rf`-ed. If the path doesn't exist, it'll be `mkdir -p`-ed.
 
 ```bash
-export ROOTFS_PATH=/rootfs-ng
+export ROOTFS_PATH=/rootfs
 ```
 
 If you're root, just run the `bootstrap.sh` script:
