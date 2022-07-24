@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * *'
+
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  build_deploy:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+        sudo apt-get install -y arch-install-scripts debootstrap
+    - name: Build
+      run: |
+        export ROOTFS_PATH="$(pwd)/rootfs"
+        export MIRROR="http://azure.archive.ubuntu.com/ubuntu"
+        sudo --preserve-env ./bootstrap.sh
+    - name: Compress with XZ
+      run: |
+        sudo tar -cJvf rootfs.tar.xz rootfs
+        sudo chmod 777 rootfs.tar.xz
+    - uses: actions/upload-artifact@v3
+      with:
+        name: rootfs
+        path: rootfs.tar.xz
+
