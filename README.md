@@ -7,7 +7,6 @@ This is the sandbox's rootfs used by [lyrio-judge](https://github.com/lyrio-dev/
 * Kotlin (from [SDKMAN!](https://kotlinlang.org/docs/tutorials/command-line.html))
 * Free Pascal 3
 * Python 2.7
-* Python 3.6 (with [Pyenv](https://github.com/pyenv/pyenv), built from source)
 * Python 3.9
 * Python 3.10
 * Swift (from [Swift.org](https://swift.org/))

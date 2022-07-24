@@ -65,17 +65,6 @@ apt-get install -y g++-$GCC_VERSION-multilib \
                    mono-devel \
                    fsharp
 
-# Install Python 3.6 via Pyenv
-su sandbox -c 'curl https://pyenv.run | bash'
-apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
-                   libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev libgdbm-dev libnss3-dev libedit-dev libc6-dev
-function install_python_pyenv() {
-  FULL_VERSION="$(su sandbox -c "/sandbox/.pyenv/bin/pyenv install --list" | sed -nE "s/^  ($(echo "$1" | sed 's/\./\\./')\.[0-9]+)$/\1/p" | tail -n 1)"
-  su sandbox -c "/sandbox/.pyenv/bin/pyenv install $FULL_VERSION"
-  ln -sf "/sandbox/.pyenv/versions/$FULL_VERSION/bin/python" "/usr/local/bin/python$1"
-}
-install_python_pyenv 3.6
-
 # Install Rust via Rustup
 su sandbox -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
 
