@@ -1,18 +1,19 @@
 # Sandbox RootFS
-This is the sandbox's rootfs used by [lyrio-judge](https://github.com/lyrio-dev/judge). It's based on Ubuntu 20.04 and contains compilers (and interpreters) below:
+This is the sandbox's rootfs used by [lyrio-judge](https://github.com/lyrio-dev/judge). It's based on Ubuntu 22.04 and contains compilers (and interpreters) below:
 
-* GCC 10
-* Clang 11 (from [LLVM](https://apt.llvm.org/))
-* OpenJDK 11
+* GCC 12
+* Clang 14 (from [LLVM](https://apt.llvm.org/))
+* OpenJDK 17
 * Kotlin (from [SDKMAN!](https://kotlinlang.org/docs/tutorials/command-line.html))
 * Free Pascal 3
-* Python 2.7 (from [PPA](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa))
-* Python 3.6
-* Python 3.9 (from [PPA](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa))
+* Python 2.7
+* Python 3.6 (with [Pyenv](https://github.com/pyenv/pyenv), built from source)
+* Python 3.9
+* Python 3.10
 * Swift (from [Swift.org](https://swift.org/))
 * Rust (from [Rustup](https://rustup.rs/))
 * Go (from [PPA](https://launchpad.net/~longsleep/+archive/ubuntu/golang-backports))
-* GHC (from [PPA](https://launchpad.net/~hvr/+archive/ubuntu/ghc))
+* GHC 9.0.1 (from [PPA](https://launchpad.net/~hvr/+archive/ubuntu/ghc))
 * C# (from [Mono](https://www.mono-project.com/download/stable/))
 * F# (from [Mono](https://www.mono-project.com/download/stable/))
 
@@ -25,7 +26,7 @@ You'll need:
 
 * A Linux box with root privilege
 * `arch-chroot` (usually in the package `arch-install-scripts`)
-* `debootstrap` (some old version of Debian's `debootstrap` couldn't bootstrap Ubuntu 20.04)
+* `debootstrap` (some old version of Debian's `debootstrap` couldn't bootstrap Ubuntu 22.04)
 
 First, clone this repo:
 

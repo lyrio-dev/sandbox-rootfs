@@ -33,7 +33,7 @@ fi
 
 rm -rf "$ROOTFS_PATH"
 mkdir -p "$ROOTFS_PATH"
-debootstrap --components=main,universe focal "$ROOTFS_PATH" "$MIRROR"
+debootstrap --components=main,universe jammy "$ROOTFS_PATH" "$MIRROR"
 
 cp "$INSTALL_SCRIPT" "$ROOTFS_PATH/root"
 arch-chroot "$ROOTFS_PATH" "/root/$INSTALL_SCRIPT"
