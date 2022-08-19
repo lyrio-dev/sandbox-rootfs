@@ -92,5 +92,5 @@ ln -s /opt/swift/usr/bin/swiftc /usr/local/bin/swiftc
 apt-get clean
 
 # Install testlib
-git clone https://github.com/MikeMirzayanov/testlib /tmp/testlib
+git clone https://github.com/lyrio-dev/testlib /tmp/testlib
 cp /tmp/testlib/testlib.h /usr/include/
