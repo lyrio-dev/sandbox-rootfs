@@ -88,6 +88,16 @@ ln -s /sandbox/.sdkman/candidates/kotlin/current/bin/kotlinc /usr/local/bin/kotl
 ln -s /sandbox/.cargo/bin/rustc /usr/local/bin/rustc
 ln -s /opt/swift/usr/bin/swiftc /usr/local/bin/swiftc
 
+# Create wrapper for GHC
+cat > /usr/local/bin/ghc <<EOF
+#!/bin/bash
+for DIR in /opt/ghc/*/lib/ghc-*/*; do
+    export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:\$DIR"
+done
+/opt/ghc/bin/ghc "\$@"
+EOF
+chmod +x /usr/local/bin/ghc
+
 # Clean the APT cache
 apt-get clean
 
